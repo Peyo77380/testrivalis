@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+    <h1>Home page</h1>
+
+    <p>Bonjour {{ app.user.fullname}}<p>
+    <a href="{{ path('app_data_to_convert_index') }}">Voir mes messages</a>
+{% endblock %}

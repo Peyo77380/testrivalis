@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DataToConvert index{% endblock %}
+
+{% block body %}
+    <h1>DataToConvert index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Texte</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for data_to_convert in data_to_converts %}
+            <tr>
+                <td>{{ data_to_convert.id }}</td>
+                <td>{{ data_to_convert.text }}</td>
+                <td>{{ data_to_convert.createdAt ? data_to_convert.createdAt|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_data_to_convert_show', {'id': data_to_convert.id}) }}">Détails</a>
+                    <a href="{{ path('app_data_to_convert_edit', {'id': data_to_convert.id}) }}">Modifier</a>
+                    <a href="{{ path('app_data_to_convert_export', {'id': data_to_convert.id}) }}">Exporter en PDF</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Vous n'avez pas encore de message</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_data_to_convert_new') }}">Creer un nouveau message</a>
+{% endblock %}

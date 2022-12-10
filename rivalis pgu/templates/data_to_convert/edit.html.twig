@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le message{% endblock %}
+
+{% block body %}
+    <h1>Modifier le message</h1>
+
+    {{ include('data_to_convert/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_data_to_convert_index') }}">Retour vers la liste</a>
+
+    {{ include('data_to_convert/_delete_form.html.twig') }}
+{% endblock %}

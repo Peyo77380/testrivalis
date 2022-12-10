@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_data_to_convert_delete', {'id': data_to_convert.id}) }}" onsubmit="return confirm('Voulez vous définitivement supprimer ce message ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data_to_convert.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
